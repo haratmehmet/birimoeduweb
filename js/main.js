@@ -569,7 +569,7 @@ function initDemoForm() {
       try {
         // Attempt sending to local API if backend script is active
         try {
-          const response = await fetch('api/submit_demo.php', {
+          const response = await fetch('/api/submit_demo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)

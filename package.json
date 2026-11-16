@@ -1,0 +1,12 @@
+{
+  "name": "birimoeduweb",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Birimo Edu — Birebir Eğitim Kurumları Yönetim Sistemi Kurumsal Web Sitesi",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
+  }
+}
