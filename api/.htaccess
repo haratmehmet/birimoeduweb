@@ -1,0 +1,28 @@
+# =============================================================================
+# Birimo API — Sıkılaştırılmış Güvenlik Kuralları
+# =============================================================================
+
+# Dizin listelemeyi kapat
+Options -Indexes
+
+# Tüm veritabanı, log, yedek ve yapılandırma dosyalarını engelle
+<FilesMatch "\.(json|sql|log|env|md|txt|bak|conf|yml|yaml)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# config.php dosyasına doğrudan erişimi engelle
+<Files "config.php">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Deny from all
+    </IfModule>
+</Files>

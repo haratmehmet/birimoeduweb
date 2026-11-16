@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birimo Edu | Eğitim Teknolojileri — Panel Giriş</title>
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brandNavy: '#0e284d',
+            brandNavyLight: '#163b6f',
+            brandCoral: '#fc4c39',
+            brandCoralHover: '#e83926',
+            brandSlate: '#f8fafc',
+            orange: {
+              50: '#fff5f3',
+              100: '#ffe8e4',
+              200: '#ffd4cc',
+              300: '#ffb3a4',
+              400: '#fe7b66',
+              500: '#fc4c39',
+              600: '#e83926',
+              700: '#c32716',
+              800: '#a12316',
+              900: '#852218',
+              950: '#480d07',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles with Cache Buster -->
+  <link rel="stylesheet" href="../css/style.css?v=20261018c">
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-white to-[#0e284d]/[0.03] text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-brandNavy selection:text-white">
+
+  <!-- Minimal Header -->
+  <header class="py-5 px-6 border-b border-slate-200/80 bg-white/80 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 group">
+        <img src="../assets/logo.png" alt="Birimo Logo" class="h-10 w-auto object-contain">
+      </a>
+      <a href="../index.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-brandCoral transition-colors">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span>Ana Sayfaya Dön</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Login Card Container -->
+  <main class="flex-1 flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md bg-white rounded-3xl p-8 sm:p-10 shadow-xl border border-slate-200/80 relative overflow-hidden">
+      
+      <!-- Ambient Glow -->
+      <div class="absolute -top-12 -right-12 w-36 h-36 bg-[#0e284d]/[0.06] rounded-full blur-2xl pointer-events-none"></div>
+
+      <!-- Header -->
+      <div class="text-center mb-7 relative z-10">
+        <div class="w-12 h-12 rounded-2xl bg-slate-100 text-brandNavy flex items-center justify-center mx-auto mb-3.5 border border-slate-200 shadow-xs">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+        </div>
+        <h1 class="text-2xl font-black text-brandNavy tracking-tight">Kurumsal Portal Girişi</h1>
+        <p class="text-xs text-slate-500 mt-1.5">Yönetici, öğretmen ve personel paneline erişin.</p>
+      </div>
+
+      <!-- Login Form -->
+      <form id="portalLoginForm" class="space-y-4 relative z-10" onsubmit="event.preventDefault(); handlePortalLogin();">
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1.5">E-posta veya Kullanıcı Adı</label>
+          <div class="relative">
+            <i data-lucide="mail" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3"></i>
+            <input type="text" required placeholder="ornek@birimoedu.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-brandNavy focus:bg-white transition-all">
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label class="block text-xs font-bold text-slate-700">Şifre</label>
+            <a href="javascript:void(0)" onclick="alert('Şifre sıfırlama bağlantısı kurum yöneticinize iletilmiştir.')" class="text-[11px] text-brandCoral hover:underline font-semibold">Şifremi Unuttum</a>
+          </div>
+          <div class="relative">
+            <i data-lucide="lock" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3"></i>
+            <input type="password" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-brandNavy focus:bg-white transition-all">
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-slate-600 pt-1">
+          <label class="flex items-center gap-2 cursor-pointer select-none">
+            <input type="checkbox" checked class="rounded border-slate-300 text-brandCoral focus:ring-brandCoral">
+            <span>Beni hatırla</span>
+          </label>
+          <span class="text-[11px] text-slate-400">256-bit SSL Güvenliği</span>
+        </div>
+
+        <button type="submit" id="loginBtn" class="w-full btn-coral py-2.5 sm:py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-xs hover:shadow-md mt-2">
+          <span>Giriş Yap</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+
+        <div id="loginAlert" class="hidden mt-3 p-3 rounded-xl bg-orange-50 border border-orange-200 text-xs text-brandCoral text-center font-medium">
+          Bağlantı kuruluyor... Doğrudan uygulama sayfasına yönlendiriliyorsunuz.
+        </div>
+
+      </form>
+
+      <!-- App Link & Info -->
+      <div class="mt-6 pt-5 border-t border-slate-100 text-center relative z-10">
+        <p class="text-xs text-slate-500 mb-2">Kurumunuz henüz Birimo EDU kullanmıyor mu?</p>
+        <a href="../index.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-brandCoral hover:text-brandCoralHover transition-colors">
+          <span>Hemen Satın Alma Talebinde Bulunun</span>
+          <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="py-4 text-center text-xs text-slate-400 border-t border-slate-200/60 bg-white">
+    <p>© 2026 Birimo Eğitim Teknolojileri Firması — Tüm Hakları Saklıdır.</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    function handlePortalLogin() {
+      const alertBox = document.getElementById('loginAlert');
+      const btn = document.getElementById('loginBtn');
+      btn.disabled = true;
+      btn.innerHTML = 'Doğrulanıyor...';
+      alertBox.classList.remove('hidden');
+
+      // Yönlendirme (Canlı Yazılım Paneli)
+      setTimeout(() => {
+        window.location.href = 'https://app.birimoedu.com/login';
+      }, 800);
+    }
+  </script>
+</body>
+</html>

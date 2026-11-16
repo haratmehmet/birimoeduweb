@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birimo Edu | Eğitim Teknolojileri — Bize Ulaşın</title>
+  <meta name="description" content="Birimo kurumsal iletişim kanalları, genel merkez bilgileri, satış destek hattı ve kurumunuza özel talep formu.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brandNavy: '#0e284d',
+            brandNavyLight: '#163b6f',
+            brandCoral: '#fc4c39',
+            brandCoralHover: '#e83926',
+            brandSlate: '#f8fafc',
+            orange: {
+              50: '#fff5f3',
+              100: '#ffe8e4',
+              200: '#ffd4cc',
+              300: '#ffb3a4',
+              400: '#fe7b66',
+              500: '#fc4c39',
+              600: '#e83926',
+              700: '#c32716',
+              800: '#a12316',
+              900: '#852218',
+              950: '#480d07',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles with Cache Buster -->
+  <link rel="stylesheet" href="css/style.css?v=20261018e">
+  <style>
+    .hero-mesh {
+      background-color: #ffffff !important;
+      background-image: 
+        radial-gradient(at 50% 0%, rgba(14, 40, 77, 0.12) 0px, rgba(14, 40, 77, 0.04) 45%, transparent 70%),
+        radial-gradient(at 10% 40%, rgba(14, 40, 77, 0.05) 0px, transparent 50%),
+        radial-gradient(at 90% 60%, rgba(14, 40, 77, 0.05) 0px, transparent 50%) !important;
+      background-size: cover;
+      position: relative;
+    }
+    .hero-mesh::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(14, 40, 77, 0.06) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(14, 40, 77, 0.06) 1px, transparent 1px) !important;
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800 antialiased selection:bg-brandCoral selection:text-white">
+
+  <!-- =========================================================================
+       1. STICKY LUXURY WHITE GLASS HEADER
+       ========================================================================= -->
+  <header id="mainHeader" class="glass-header sticky top-0 z-50 py-3.5 px-4 sm:px-6 lg:px-8 bg-white/95">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group pl-2 sm:pl-3.5">
+        <img src="assets/logo.png" alt="Birimo" class="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+      </a>
+
+      <!-- Desktop Nav Links (Kurumsal - Teknoloji & Alt Yapı - Güncel - SSS - Bize Ulaşın) -->
+      <nav class="hidden lg:flex items-center gap-5 xl:gap-6 text-sm font-bold text-slate-700">
+        <a href="index.html" class="w-8 h-8 rounded-xl bg-slate-100/90 hover:bg-orange-50 border border-slate-200/90 hover:border-brandCoral/40 transition-all flex items-center justify-center shadow-2xs group -mr-1" title="Ana Sayfa">
+          <img src="assets/birimo_icon.png" alt="Birimo Ana Sayfa" class="w-5 h-5 object-contain group-hover:scale-110 transition-transform">
+        </a>
+        <a href="sirket.html" class="hover:text-brandCoral transition-colors">Kurumsal</a>
+        <a href="altyapi.html" class="hover:text-brandCoral transition-colors">Teknoloji & Alt Yapı</a>
+        <a href="bilgi-merkezi.html" class="hover:text-brandCoral transition-colors">Bilgi Merkezi</a>
+        <a href="sss.html" class="hover:text-brandCoral transition-colors">SSS</a>
+        <a href="iletisim.html" class="text-brandCoral border-b-2 border-brandCoral pb-0.5">Bize Ulaşın</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="https://www.ableajans.com" target="_blank" rel="noopener noreferrer" class="group flex items-center transition-transform hover:scale-105 shrink-0" title="Able Ajans — www.ableajans.com">
+          <img src="assets/ableajans_logo.png" alt="Able Ajans" class="w-8 h-8 sm:w-[34px] sm:h-[34px] object-contain rounded-full shadow-2xs hover:shadow-xs transition-all">
+        </a>
+        <a href="https://app.birimoedu.com/login" class="px-4 py-2 text-xs font-bold text-brandNavy bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl transition-all flex items-center gap-1.5 shadow-xs">
+          <i data-lucide="lock" class="w-3.5 h-3.5 text-brandCoral"></i>
+          <span>Panel Giriş</span>
+        </a>
+        <button class="open-demo-modal btn-coral px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+          <span>Birimo Satış Talebi</span>
+          <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button & Able Ajans -->
+      <div class="flex items-center gap-2 lg:hidden">
+        <a href="https://www.ableajans.com" target="_blank" rel="noopener noreferrer" class="sm:hidden transition-transform hover:scale-105 shrink-0 inline-flex items-center" title="Able Ajans — www.ableajans.com">
+          <img src="assets/ableajans_logo.png" alt="Able Ajans" class="w-7 h-7 object-contain rounded-full shadow-2xs">
+        </a>
+        <button id="mobileMenuToggle" class="p-2 text-slate-800 hover:text-brandCoral focus:outline-none">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+          <!-- Mobile Dropdown Menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-50 transform -translate-y-full transition-transform duration-300 ease-out flex flex-col justify-start lg:hidden pointer-events-none">
+    
+    <!-- Backdrop Blur (Tap to close) -->
+    <div id="mobileMenuBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-xs transition-opacity"></div>
+
+    <!-- Dropdown Menu Sheet (Solid Crisp White Card - Opaque) -->
+    <div class="relative z-10 bg-white shadow-2xl border-b border-slate-200 rounded-b-3xl p-4 sm:p-5 flex flex-col max-h-[90vh] overflow-y-auto">
+      
+      <!-- Top Bar: Logo & Close -->
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100 shrink-0">
+        <img src="assets/logo.png" alt="Birimo" class="h-7 w-auto object-contain">
+        <button id="closeMobileMenu" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors" aria-label="Kapat">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Navigation Links (Kutusuz, Temiz & Estetik) -->
+      <div class="py-2">
+        <a href="index.html" class="mobile-nav-link flex items-center justify-between py-2.5 px-3 text-sm font-medium text-slate-700 hover:text-brandCoral border-b border-slate-50 transition-colors group">
+          <span>Ana Sayfa</span>
+          <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-300 group-hover:text-brandCoral group-hover:translate-x-0.5 transition-all shrink-0"></i>
+        </a>
+        <a href="sirket.html" class="mobile-nav-link flex items-center justify-between py-2.5 px-3 text-sm font-medium text-slate-700 hover:text-brandCoral border-b border-slate-50 transition-colors group">
+          <span>Kurumsal</span>
+          <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-300 group-hover:text-brandCoral group-hover:translate-x-0.5 transition-all shrink-0"></i>
+        </a>
+        <a href="altyapi.html" class="mobile-nav-link flex items-center justify-between py-2.5 px-3 text-sm font-medium text-slate-700 hover:text-brandCoral border-b border-slate-50 transition-colors group">
+          <span>Teknoloji & Alt Yapı</span>
+          <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-300 group-hover:text-brandCoral group-hover:translate-x-0.5 transition-all shrink-0"></i>
+        </a>
+        <a href="bilgi-merkezi.html" class="mobile-nav-link flex items-center justify-between py-2.5 px-3 text-sm font-medium text-slate-700 hover:text-brandCoral border-b border-slate-50 transition-colors group">
+          <span>Bilgi Merkezi</span>
+          <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-300 group-hover:text-brandCoral group-hover:translate-x-0.5 transition-all shrink-0"></i>
+        </a>
+        <a href="sss.html" class="mobile-nav-link flex items-center justify-between py-2.5 px-3 text-sm font-medium text-slate-700 hover:text-brandCoral border-b border-slate-50 transition-colors group">
+          <span>Sıkça Sorulan Sorular (SSS)</span>
+          <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-300 group-hover:text-brandCoral group-hover:translate-x-0.5 transition-all shrink-0"></i>
+        </a>
+        <a href="iletisim.html" class="mobile-nav-link flex items-center justify-between py-2.5 px-3 text-sm font-bold text-brandCoral border-b border-slate-50 transition-colors">
+          <span>Bize Ulaşın</span>
+          <i data-lucide="check" class="w-4 h-4 text-brandCoral shrink-0"></i>
+        </a>
+      </div>
+
+      <!-- Contact Info Box (Net & Görünür) -->
+      <div class="mt-2 p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-xs">
+        <a href="tel:05458550089" class="flex items-center gap-1.5 font-bold text-slate-800 hover:text-brandCoral transition-colors">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5 text-brandCoral shrink-0"></i>
+          <span>0545 855 00 89</span>
+        </a>
+        <a href="mailto:destek@birimoedu.com" class="text-slate-500 hover:text-brandCoral transition-colors font-medium text-[11px] truncate ml-2">
+          destek@birimoedu.com
+        </a>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="mt-3 space-y-2 shrink-0">
+        <div class="flex items-center gap-2">
+          <a href="https://app.birimoedu.com/login" class="flex-1 py-2.5 px-3 text-center text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-xl flex items-center justify-center gap-1.5 border border-slate-200 transition-colors shadow-2xs">
+            <i data-lucide="lock" class="w-3.5 h-3.5 text-slate-500"></i>
+            <span>Panel Giriş</span>
+          </a>
+          <a href="https://www.ableajans.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 flex items-center justify-center shrink-0 transition-transform active:scale-95 shadow-2xs" title="Able Ajans — www.ableajans.com">
+            <img src="assets/ableajans_logo.png" alt="Able Ajans" class="w-6 h-6 object-contain rounded-full">
+          </a>
+        </div>
+        
+        <button class="open-demo-modal w-full btn-coral py-2.5 text-center text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 shadow-2xs active:scale-[0.99] transition-all">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>Birimo Satış Talebi</span>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- =========================================================================
+       2. PAGE HERO: BİZE ULAŞIN GİRİŞ
+       ========================================================================= -->
+  <section class="hero-mesh text-slate-900 py-6 sm:py-8 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80 relative overflow-hidden">
+    <div class="glow-orb w-[650px] h-[350px] bg-[#0e284d]/10 -top-24 left-1/2 -translate-x-1/2 pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto text-center space-y-2.5 relative z-10">
+      
+      <!-- Eyebrow Badge -->
+      <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-orange-50 border border-brandCoral/30 text-[11px] font-bold uppercase tracking-wider text-brandCoral shadow-xs">
+        <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+        <span>Kurumsal Merkez & Destek Kanalları</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-lg sm:text-xl lg:text-2xl font-black text-brandNavy tracking-tight leading-snug">
+        <span>Kurumunuz İçin</span>
+        <span class="block text-brandCoral mt-0.5 sm:mt-1">Her Zaman Yanınızdayız.</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
+        Kurumunuza özel geçiş planı, veri aktarımı, sistem entegrasyonu veya teknik destek için uzman eğitim danışmanlarımızla hemen iletişime geçebilirsiniz.
+      </p>
+
+      <!-- 3 Key Support Highlights -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 max-w-3xl mx-auto text-left">
+        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-white shadow-2xs border border-slate-200 flex items-center justify-center text-brandCoral shrink-0">
+            <i data-lucide="clock" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-brandNavy">15 Dakikada Yanıt</div>
+            <div class="text-[11px] text-slate-500">Mesai saatlerinde anında arama</div>
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-white shadow-2xs border border-slate-200 flex items-center justify-center text-emerald-600 shrink-0">
+            <i data-lucide="database" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-brandNavy">Ücretsiz Veri Aktarımı</div>
+            <div class="text-[11px] text-slate-500">Excel listeleriniz sisteme taşınır</div>
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-white shadow-2xs border border-slate-200 flex items-center justify-center text-indigo-600 shrink-0">
+            <i data-lucide="users" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-brandNavy">Birebir Personel Eğitimi</div>
+            <div class="text-[11px] text-slate-500">Tüm ekibinize birebir eğitim</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. MERKEZ OFİS VE DOĞRUDAN İLETİŞİM BÖLÜMÜ (BİZE ULAŞIN)
+       ========================================================================= -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <section id="iletisim" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left: Contact Details (5 Cols) -->
+      <div class="lg:col-span-5 space-y-4">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-brandCoral font-mono block">BİZE ULAŞIN</span>
+          <h2 class="text-lg sm:text-xl font-extrabold text-brandNavy tracking-tight leading-snug">
+            Kurumsal Merkez & Destek Kanalları
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1 font-normal">
+            Sorularınız, kurumsal talepleriniz veya kurumunuza özel geçiş planı için uzman eğitim danışmanlarımızla hemen iletişime geçebilirsiniz.
+          </p>
+        </div>
+
+        <div class="space-y-3 pt-1">
+          <!-- Telefon -->
+          <a href="tel:05458550089" class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-slate-50 hover:bg-orange-50/60 border border-slate-200/80 hover:border-brandCoral/30 transition-all group">
+            <div class="w-11 h-11 rounded-xl bg-white text-brandNavy flex items-center justify-center shadow-xs border border-slate-200 group-hover:text-brandCoral shrink-0">
+              <i data-lucide="phone-call" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Müşteri Destek & Bilgi Hattı</div>
+              <div class="text-sm font-extrabold text-brandNavy group-hover:text-brandCoral">0 545 855 00 89</div>
+            </div>
+          </a>
+
+          <!-- E-posta -->
+          <a href="mailto:destek@birimoedu.com" class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-slate-50 hover:bg-orange-50/60 border border-slate-200/80 hover:border-brandCoral/30 transition-all group">
+            <div class="w-11 h-11 rounded-xl bg-white text-brandNavy flex items-center justify-center shadow-xs border border-slate-200 group-hover:text-brandCoral shrink-0">
+              <i data-lucide="mail" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Kurumsal E-posta</div>
+              <div class="text-sm font-extrabold text-brandNavy group-hover:text-brandCoral">destek@birimoedu.com</div>
+            </div>
+          </a>
+
+          <!-- Adres -->
+          <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
+            <div class="w-11 h-11 rounded-xl bg-white text-brandNavy flex items-center justify-center shadow-xs border border-slate-200 shrink-0">
+              <i data-lucide="map-pin" class="w-5 h-5 text-brandCoral"></i>
+            </div>
+            <div>
+              <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Merkezimiz ve Hizmet Bölgemiz</div>
+              <div class="text-xs mt-0.5 leading-snug">
+                <div class="font-bold text-slate-800">Teknoloji merkezimiz Gaziantep’te yer almaktadır.</div>
+                <div class="font-medium text-slate-600 mt-0.5">Türkiye genelindeki tüm VİP eğitim kurumlarına hizmet sunuyoruz.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Çalışma Saatleri -->
+          <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200/70 text-xs text-slate-600">
+            <span class="flex items-center gap-1.5 font-medium">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-slate-500"></i>
+              <span>Mesai Saatleri:</span>
+            </span>
+            <span class="font-bold text-brandNavy">Pzt - Cts: 09:00 - 19:30</span>
+          </div>
+
+          <!-- KVKK & Veri Güvenliği Notu -->
+          <div class="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 flex items-start gap-2.5 text-xs text-emerald-900">
+            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+            <span>Paylaştığınız tüm kurum ve iletişim bilgileri KVKK mevzuatına uygun olarak %100 gizlilik prensibiyle korunur.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Contact Form (7 Cols) -->
+      <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm relative">
+        <div class="mb-5 pb-4 border-b border-slate-100 flex items-center justify-between">
+          <div>
+            <h3 class="text-lg font-black text-brandNavy">Doğrudan İletişim ve Talep Formu</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Bilgilerinizi bırakın, uzmanımız 15 dakika içinde sizinle iletişime geçsin.</p>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-orange-50 text-brandCoral flex items-center justify-center shrink-0 border border-orange-200/60 hidden sm:flex">
+            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+          </div>
+        </div>
+
+        <form id="companyContactForm" class="space-y-3.5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Adınız Soyadınız *</label>
+              <input type="text" name="fullName" required placeholder="Örn: Ayşe Yılmaz" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:border-brandCoral focus:ring-2 focus:ring-brandCoral/20 outline-none transition-all">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Kurum Adı *</label>
+              <input type="text" name="institutionName" required placeholder="Örn: Hedef VIP Kursu" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:border-brandCoral focus:ring-2 focus:ring-brandCoral/20 outline-none transition-all">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Telefon Numaranız *</label>
+              <input type="tel" name="phone" required placeholder="05XX XXX XX XX" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:border-brandCoral focus:ring-2 focus:ring-brandCoral/20 outline-none transition-all">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Öğrenci Sayısı *</label>
+              <input type="number" min="1" max="50000" name="studentCount" required placeholder="Örn: 80" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:border-brandCoral focus:ring-2 focus:ring-brandCoral/20 outline-none transition-all">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Şehir</label>
+              <input type="text" name="city" placeholder="Örn: İstanbul" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:border-brandCoral focus:ring-2 focus:ring-brandCoral/20 outline-none transition-all">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">E-Posta Adresi</label>
+              <input type="email" name="email" placeholder="Örn: info@kurum.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:border-brandCoral focus:ring-2 focus:ring-brandCoral/20 outline-none transition-all">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Mesajınız veya Merak Ettikleriniz</label>
+            <textarea name="message" rows="3" placeholder="Kurumunuzun şube yapısı, mevcut planlama modeliniz veya sormak istediğiniz detayları belirtebilirsiniz..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:border-brandCoral focus:ring-2 focus:ring-brandCoral/20 outline-none transition-all resize-none"></textarea>
+          </div>
+
+          <div class="pt-3 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-slate-100/80 mt-2">
+            <div class="flex items-center gap-1.5 text-[11px] text-slate-400">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Bilgileriniz KVKK standartlarında korunur.</span>
+            </div>
+            <button type="submit" class="btn-coral px-5 py-2.5 rounded-xl text-xs font-bold inline-flex items-center justify-center gap-2 shadow-2xs hover:shadow-xs transition-all active:scale-[0.98] cursor-pointer shrink-0">
+              <span>Talebimi Gönder</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </section>
+
+    <!-- Transport & Map Guide Card -->
+    <div class="mt-12 p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200/80 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-brandCoral shrink-0 shadow-2xs">
+          <i data-lucide="map-pin" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold text-brandNavy">Merkezimiz & Hizmet Ağı</h4>
+          <p class="text-[11px] text-slate-500 mt-0.5 leading-relaxed">
+            <span>Teknoloji merkezimiz Gaziantep’te yer almaktadır.</span><br>
+            <span>Türkiye genelindeki tüm VİP eğitim kurumlarına hizmet sunuyoruz.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-brandCoral shrink-0 shadow-2xs">
+          <i data-lucide="video" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold text-brandNavy">Online Kurumsal Tanıtım</h4>
+          <p class="text-[11px] text-slate-500 mt-0.5 leading-relaxed">Şehir dışındaki kurumlarımız için Zoom / Google Meet üzerinden birebir tanıtım oturumu.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-brandCoral shrink-0 shadow-2xs">
+          <i data-lucide="help-circle" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold text-brandNavy">Sıkça Sorulan Sorular</h4>
+          <p class="text-[11px] text-slate-500 mt-0.5 leading-relaxed">Platform lisanslama ve paket detayları için <a href="sss.html" class="text-brandCoral font-bold underline">SSS sayfamızı</a> inceleyebilirsiniz.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       4. CORPORATE FOOTER
+       ========================================================================= -->
+  <footer class="bg-white text-slate-600 pt-9 pb-5 sm:pt-11 sm:pb-6 px-4 sm:px-6 lg:px-8 border-t border-slate-200 text-xs">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+      
+      <!-- Col 1: Brand -->
+      <div class="space-y-4">
+        <a href="index.html" class="inline-block">
+          <img src="assets/logo.png" alt="Birimo" class="h-9 w-auto object-contain">
+        </a>
+        <p class="leading-relaxed text-slate-600">
+          VIP kurslar, kolejler ve etüt merkezleri için yeni nesil birebir eğitim ve rehberlik ödev işletim sistemi.
+        </p>
+        <div class="inline-flex items-center gap-1.5 text-[11px] text-brandNavy font-mono font-bold bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200">
+          <span>● Kurumsal Güven, Güçlü Veri Koruması</span>
+        </div>
+      </div>
+
+      <!-- Col 2: Navigation -->
+      <div>
+        <h4 class="text-brandNavy font-extrabold text-sm mb-4">Hızlı Bağlantılar</h4>
+        <ul class="space-y-2.5">
+          <li><a href="sirket.html" class="hover:text-brandCoral transition-colors">Kurumsal Profil</a></li>
+          <li><a href="altyapi.html" class="hover:text-brandCoral transition-colors">Teknoloji & Alt Yapı</a></li>
+          <li><a href="bilgi-merkezi.html" class="hover:text-brandCoral transition-colors">Bilgi Merkezi</a></li>
+          <li><a href="sss.html" class="hover:text-brandCoral transition-colors">Sıkça Sorulan Sorular (SSS)</a></li>
+          <li><a href="iletisim.html" class="hover:text-brandCoral transition-colors">Bize Ulaşın</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Legal & Security -->
+      <div>
+        <h4 class="text-brandNavy font-extrabold text-sm mb-4">Güvenlik & Mevzuat</h4>
+        <ul class="space-y-2.5">
+          <li><a href="sirket.html#guvenlik" class="hover:text-brandCoral transition-colors">Kurumsal Veri Güvenliği</a></li>
+          <li><button type="button" class="open-legal-modal hover:text-brandCoral transition-colors text-left cursor-pointer" data-legal-tab="kvkk">KVKK Uyum Standartları</button></li>
+          <li><button type="button" class="open-legal-modal hover:text-brandCoral transition-colors text-left cursor-pointer" data-legal-tab="hizmet">Hizmet Şartları</button></li>
+          <li><button type="button" class="open-legal-modal hover:text-brandCoral transition-colors text-left cursor-pointer" data-legal-tab="cerez">Çerez Politikası</button></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact & Social -->
+      <div class="space-y-4">
+        <h4 class="text-brandNavy font-extrabold text-sm mb-4">Kurumsal İletişim</h4>
+        <div class="flex items-start gap-2.5">
+          <i data-lucide="map-pin" class="w-4 h-4 text-brandCoral shrink-0 mt-0.5"></i>
+          <div>
+            <span class="text-slate-600 block">Teknoloji merkezimiz Gaziantep’te yer almaktadır.</span>
+            <span class="block text-slate-400 text-[11px] mt-0.5">Türkiye genelindeki tüm VİP eğitim kurumlarına hizmet sunuyoruz.</span>
+          </div>
+        </div>
+        <!-- Social Media Links -->
+        <div class="flex items-center gap-2.5 pt-1">
+          <!-- Instagram -->
+          <a href="#" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-brandCoral/10 text-slate-600 hover:text-brandCoral border border-slate-200 flex items-center justify-center transition-all hover:scale-105 shadow-2xs" title="Instagram" aria-label="Instagram">
+            <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+            </svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-[#0A66C2]/10 text-slate-600 hover:text-[#0A66C2] border border-slate-200 flex items-center justify-center transition-all hover:scale-105 shadow-2xs" title="LinkedIn" aria-label="LinkedIn">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c.97 0 1.75-.79 1.75-1.76s-.78-1.75-1.75-1.75a1.75 1.75 0 0 0-1.76 1.75c0 .97.79 1.76 1.76 1.76m1.39 9.74v-8.37H5.07v8.37h2.78z"></path>
+            </svg>
+          </a>
+          <!-- X (Twitter) -->
+          <a href="#" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-900/10 text-slate-600 hover:text-slate-900 border border-slate-200 flex items-center justify-center transition-all hover:scale-105 shadow-2xs" title="X (Twitter)" aria-label="X">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+            </svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="#" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-[#25D366]/10 text-slate-600 hover:text-[#25D366] border border-slate-200 flex items-center justify-center transition-all hover:scale-105 shadow-2xs" title="WhatsApp" aria-label="WhatsApp">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.45c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.75-.67-1.25-1.49-1.39-1.74-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.57c.13.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto pt-4 mt-6 sm:mt-7 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 font-medium">
+      <div>
+        © 2026 Birimo. Tüm hakları saklıdır. Birebir Eğitim, Rehberlik ve Ödev Sistemi.
+      </div>
+      <div class="flex items-center gap-4">
+        <span>Bu platform, <a href="https://www.ableajans.com" target="_blank" rel="noopener noreferrer" class="hover:text-brandCoral font-semibold transition-colors">Able Ajans</a> imzasıyla geliştirildi.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       5. DEMO REQUEST POPUP MODAL
+       ========================================================================= -->
+  <div id="demoModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+    <div id="modalBackdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"></div>
+    <div class="relative bg-white rounded-3xl shadow-2xl max-w-lg w-full p-6 sm:p-8 z-10 border border-slate-100 animate-in fade-in zoom-in-95 duration-200">
+      <button id="closeDemoModal" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-1 cursor-pointer">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-11 h-11 rounded-2xl bg-slate-100 text-brandNavy flex items-center justify-center mx-auto mb-3 border border-slate-200">
+          <i data-lucide="sparkles" class="w-5 h-5 text-brandCoral"></i>
+        </div>
+        <h3 class="text-xl font-extrabold text-brandNavy">Kurumunuza Özel Satış Talebi</h3>
+        <p class="text-xs text-slate-500 mt-1">Bilgilerinizi bırakın, 15 dakika içinde uzmanımız sizinle iletişime geçsin.</p>
+      </div>
+
+      <form id="modalDemoForm" class="space-y-3">
+        <!-- Honeypot Anti-Spam (Bot Koruması) -->
+        <div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true">
+          <input type="text" name="website_hp" tabindex="-1" autocomplete="off" value="">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Adınız Soyadınız *</label>
+          <input type="text" name="fullName" required placeholder="Örn: Ayşe Yılmaz" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:border-brandNavy focus:ring-2 focus:ring-brandNavy/20 outline-none transition-all">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Kurum Adınız *</label>
+          <input type="text" name="institutionName" required placeholder="Örn: Hedef VIP Kursu" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:border-brandNavy focus:ring-2 focus:ring-brandNavy/20 outline-none transition-all">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Telefon *</label>
+            <input type="tel" name="phone" required placeholder="05XX XXX XX XX" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:border-brandNavy focus:ring-2 focus:ring-brandNavy/20 outline-none transition-all">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Şehir</label>
+            <input type="text" name="city" placeholder="Örn: İstanbul" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:border-brandNavy focus:ring-2 focus:ring-brandNavy/20 outline-none transition-all">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Öğrenci Kapasiteniz</label>
+          <select name="studentCapacity" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:border-brandNavy focus:ring-2 focus:ring-brandNavy/20 outline-none transition-all bg-white">
+            <option value="1-50">1 - 50 Öğrenci</option>
+            <option value="51-150" selected>51 - 150 Öğrenci</option>
+            <option value="151-300">151 - 300 Öğrenci</option>
+            <option value="300+">300+ Öğrenci</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full btn-coral py-3.5 rounded-xl text-xs sm:text-sm font-extrabold flex items-center justify-center gap-2 mt-4 shadow-lg cursor-pointer">
+          <span>Talebimi İlet</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <!-- Main Website Script with Cache Buster -->
+  <script src="js/main.js?v=20261018e"></script>
+</body>
+</html>

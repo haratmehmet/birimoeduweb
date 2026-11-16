@@ -1,0 +1,561 @@
+/* ==========================================================================
+   Birimo Corporate Website — Premium Luxury Stylesheet
+   Brand Colors:
+   Primary Navy: #0e284d
+   Edu Coral:    #fc4c39 (Hover: #e83926)
+   Accent Soft:  #fff5f3
+   Background:   #09182f / #0e284d / #f8fafc
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary: #0e284d;
+  --primary-dark: #071529;
+  --primary-light: #1e4577;
+  --coral: #fc4c39;
+  --coral-hover: #e83926;
+  --coral-light: #fff5f3;
+  --coral-glow: rgba(252, 76, 57, 0.18);
+  --navy-glow: rgba(14, 40, 77, 0.2);
+  --surface: #ffffff;
+  --surface-alt: #f8fafc;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-light: rgba(226, 232, 240, 0.8);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 108px;
+  scrollbar-gutter: stable;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Ensure all targeted sections with an ID clear the 80px sticky header with clean breathing room */
+section[id],
+div[id],
+article[id],
+main[id] {
+  scroll-margin-top: 108px;
+}
+
+body {
+  background-color: #ffffff;
+  color: var(--text-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism Styles */
+.glass-header {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  transition: all 0.3s ease;
+}
+
+.glass-header.scrolled {
+  background: #ffffff;
+  box-shadow: 0 4px 25px rgba(14, 40, 77, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 30px -5px rgba(14, 40, 77, 0.05);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(14, 40, 77, 0.12);
+  border-color: rgba(252, 76, 57, 0.3);
+}
+
+.glass-card-dark {
+  background: #ffffff;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 20px 45px -10px rgba(14, 40, 77, 0.08);
+}
+
+/* Gradients & Glows */
+.hero-blueprint {
+  background-color: #071529;
+  background-image: 
+    radial-gradient(at 100% 40%, rgba(56, 189, 248, 0.08) 0px, transparent 55%),
+    radial-gradient(at 0% 0%, rgba(14, 40, 77, 0.25) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(14, 40, 77, 0.4) 0px, transparent 70%);
+  position: relative;
+}
+
+.hero-blueprint::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.hero-mesh {
+  background-color: #ffffff !important;
+  background-image: 
+    radial-gradient(at 50% 0%, rgba(14, 40, 77, 0.12) 0px, rgba(14, 40, 77, 0.04) 45%, transparent 70%),
+    radial-gradient(at 10% 40%, rgba(14, 40, 77, 0.05) 0px, transparent 50%),
+    radial-gradient(at 90% 60%, rgba(14, 40, 77, 0.05) 0px, transparent 50%) !important;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-mesh::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(14, 40, 77, 0.06) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(14, 40, 77, 0.06) 1px, transparent 1px) !important;
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+.hero-editorial,
+.hero-sketch {
+  background-color: #ffffff;
+  position: relative;
+}
+
+.text-gradient-coral {
+  color: #fc4c39;
+}
+
+.text-gradient-gold {
+  color: #0e284d;
+}
+
+.btn-coral {
+  background: #fc4c39;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(252, 76, 57, 0.24);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-coral:hover {
+  background: #e83926;
+  box-shadow: 0 4px 14px rgba(252, 76, 57, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: #0e284d;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0e284d;
+}
+
+.btn-navy {
+  background: #0e284d;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
+}
+
+.btn-navy:hover {
+  background: #163b6f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(14, 40, 77, 0.2);
+}
+
+/* Floating Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.5deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: pulseGlow 8s ease-in-out infinite;
+}
+
+/* Custom Scrollbar (Global) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fc4c39;
+}
+
+/* ==========================================================================
+   Aesthetic Slim Scrollbar for Interactive Timetable Matrix
+   ========================================================================== */
+.matrix-scroll-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 rgba(241, 245, 249, 0.6);
+  padding-bottom: 2px;
+}
+
+.matrix-scroll-container::-webkit-scrollbar {
+  height: 5px; /* Extremely sleek 5px instead of thick 16px */
+}
+
+.matrix-scroll-container::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.7);
+  border-radius: 9999px;
+  margin: 0 16px 4px 16px;
+}
+
+.matrix-scroll-container::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  transition: background 0.2s ease;
+}
+
+.matrix-scroll-container::-webkit-scrollbar-thumb:hover,
+.matrix-scroll-container::-webkit-scrollbar-thumb:active {
+  background: #fc4c39;
+}
+
+/* Mobile specific luxury scrollbar styling */
+@media (max-width: 768px) {
+  .matrix-scroll-container {
+    padding-bottom: 2px;
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Hide conflicting native mobile scrollbars */
+  }
+
+  .matrix-scroll-container::-webkit-scrollbar {
+    display: none; /* Native mobile scrollbars hidden in favor of our custom Coral progress bar */
+    width: 0;
+    height: 0;
+  }
+}
+
+/* Hide scrollbar for horizontal chip bars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Badge Styles */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Interactive Timetable Mini-Mockup */
+.mock-cell {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.mock-cell:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+  z-index: 10;
+}
+
+/* Sliders - Slim, Modern & Aesthetic */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 9999px;
+  background: #e2e8f0;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fc4c39;
+  border: 2.5px solid #ffffff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(252, 76, 57, 0.35), 0 1px 2px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.18);
+  background: #e83926;
+  box-shadow: 0 3px 10px rgba(252, 76, 57, 0.45);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fc4c39;
+  border: 2.5px solid #ffffff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(252, 76, 57, 0.35);
+  transition: transform 0.15s ease;
+}
+
+/* ==========================================================================
+   Birimo Embedded Logo Motion Intro & Slide Transitions
+   ========================================================================== */
+.logo-slide-item {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.logo-slide-item.active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.logo-slide-item.prev {
+  opacity: 0;
+  transform: translateX(-40px) scale(0.94);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.logo-slide-item.next {
+  opacity: 0;
+  transform: translateX(40px) scale(0.94);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes logoGleam {
+  0% { transform: translateX(-160%) skewX(-25deg); opacity: 0; }
+  15% { opacity: 0.95; }
+  50% { transform: translateX(180%) skewX(-25deg); opacity: 0.95; }
+  100% { transform: translateX(180%) skewX(-25deg); opacity: 0; }
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(0.3deg); }
+}
+
+@keyframes pulseShockwave {
+  0% { transform: scale(0.7); opacity: 0.7; }
+  50% { opacity: 0.35; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes orbitSpin {
+  0% { transform: rotate(0deg) translateX(110px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(110px) rotate(-360deg); }
+}
+
+@keyframes compassSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes compassSpinReverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-logo-float {
+  animation: logoFloat 4.5s ease-in-out infinite;
+}
+
+.animate-pulse-shockwave {
+  animation: pulseShockwave 3.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.animate-pulse-shockwave-delayed {
+  animation: pulseShockwave 3.5s cubic-bezier(0, 0.2, 0.8, 1) infinite 1.75s;
+}
+
+.animate-orbit-spin {
+  animation: orbitSpin 8s linear infinite;
+}
+
+.animate-logo-gleam {
+  animation: logoGleam 3.2s ease-in-out infinite;
+}
+
+.animate-compass-spin {
+  animation: compassSpin 28s linear infinite;
+}
+
+.animate-compass-spin-reverse {
+  animation: compassSpinReverse 36s linear infinite;
+}
+
+/* Boutique Prestige Showcase Styling */
+.prestige-artwork-glow {
+  box-shadow: 0 0 50px -10px rgba(252, 76, 57, 0.15), 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+}
+
+/* Intro Reel Transitions & Animations */
+.intro-scene-fade {
+  animation: introSceneIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes introSceneIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Kinetic Sketch Motion & Flowing Overlays */
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+.animate-dash-flow {
+  stroke-dasharray: 6 6;
+  animation: dashFlow 1.1s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  transform-origin: center;
+  animation: spinSlow 12s linear infinite;
+}
+
+@keyframes clockMinuteSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-clock-spin {
+  transform-origin: 0 0;
+  animation: clockMinuteSpin 4.5s linear infinite;
+}
+
+/* Cinematic Camera Glide States (100% Kararlı Dikey Çapa - Zero Vertical Shifting) */
+#sketchMotionCanvas {
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+/* Desktop: Pürüzsüz Yatay Takip (Y ekseni kesin olarak %50'ye kilitlendi, dikey zıplama sıfırlandı) */
+@media (min-width: 769px) {
+  .sketch-pan-1 {
+    transform-origin: 25% 50%;
+    transform: scale(1.025);
+  }
+
+  .sketch-pan-2 {
+    transform-origin: 50% 50%;
+    transform: scale(1.025);
+  }
+
+  .sketch-pan-3 {
+    transform-origin: 75% 50%;
+    transform: scale(1.025);
+  }
+
+  .sketch-pan-4 {
+    transform-origin: 75% 50%;
+    transform: scale(1.025);
+  }
+}
+
+/* Mobil & Tablet: Sayfa Küçültüldüğünde Sıfır Kayma, %100 Kararlı ve Merkezlenmiş Görünüm */
+@media (max-width: 768px) {
+  #sketchMotionCanvas,
+  .sketch-pan-1,
+  .sketch-pan-2,
+  .sketch-pan-3,
+  .sketch-pan-4 {
+    transform: none !important;
+    transform-origin: center center !important;
+    transition: none !important;
+  }
+}
+
+
+
+
+
+
