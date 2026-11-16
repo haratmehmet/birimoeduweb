@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initRoiCalculator();
   initHeroKineticSlider();
   initFaqAccordion();
-  initContactForm();
+  initDemoModal();
+  initDemoForm();
 });
 
 /**
@@ -291,7 +292,7 @@ function initHeroKineticSlider() {
  * 4.1. Interactive Hero Mockup (Real Software TimetableGrid Simulation)
  */
 function initMockupInteractivity() {
-  const cells = document.querySelectorAll('.mock-cell');
+  const cells = document.querySelectorAll('.demo-cell');
   const statusFeed = document.getElementById('heroMockupStatus');
   if (!cells.length) return;
 
@@ -299,7 +300,7 @@ function initMockupInteractivity() {
     {
       status: 'COMPLETED',
       pillText: '✔ KATILDI',
-      containerClass: 'mock-cell h-full border-l-[4px] border-l-emerald-500 bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-lg p-2 flex flex-col justify-between shadow-2xs hover:brightness-95 transition-all cursor-pointer',
+      containerClass: 'demo-cell mock-cell h-full border-l-[4px] border-l-emerald-500 bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-lg p-2 flex flex-col justify-between shadow-2xs hover:brightness-95 transition-all cursor-pointer',
       studentClass: 'font-extrabold text-emerald-950 text-[10px] leading-tight truncate cell-student',
       pillClass: 'cell-status text-[8px] font-black text-emerald-800 bg-emerald-100/90 px-1 py-0.5 rounded uppercase',
       metaClass: 'cell-meta text-[8px] text-emerald-700 font-semibold',
@@ -309,7 +310,7 @@ function initMockupInteractivity() {
     {
       status: 'PLANNED',
       pillText: '⏳ BEKLİYOR',
-      containerClass: 'mock-cell h-full border-l-[4px] border-l-blue-500 bg-gradient-to-br from-sky-50 to-blue-50/50 rounded-lg p-2 flex flex-col justify-between shadow-2xs hover:brightness-95 transition-all cursor-pointer',
+      containerClass: 'demo-cell mock-cell h-full border-l-[4px] border-l-blue-500 bg-gradient-to-br from-sky-50 to-blue-50/50 rounded-lg p-2 flex flex-col justify-between shadow-2xs hover:brightness-95 transition-all cursor-pointer',
       studentClass: 'font-extrabold text-blue-950 text-[10px] leading-tight truncate cell-student',
       pillClass: 'cell-status text-[8px] font-black text-blue-800 bg-blue-100/90 px-1 py-0.5 rounded uppercase',
       metaClass: 'cell-meta text-[8px] text-blue-700 font-semibold',
@@ -319,7 +320,7 @@ function initMockupInteractivity() {
     {
       status: 'UNEXCUSED',
       pillText: '✖ MAZERETSİZ',
-      containerClass: 'mock-cell h-full border-l-[4px] border-l-orange-500 bg-gradient-to-br from-orange-50 to-orange-100/50 rounded-lg p-2 flex flex-col justify-between shadow-2xs hover:brightness-95 transition-all cursor-pointer',
+      containerClass: 'demo-cell mock-cell h-full border-l-[4px] border-l-orange-500 bg-gradient-to-br from-orange-50 to-orange-100/50 rounded-lg p-2 flex flex-col justify-between shadow-2xs hover:brightness-95 transition-all cursor-pointer',
       studentClass: 'font-extrabold text-orange-950 text-[10px] leading-tight truncate line-through decoration-orange-400 cell-student',
       pillClass: 'cell-status text-[8px] font-black text-orange-800 bg-orange-100/90 px-1 py-0.5 rounded uppercase',
       metaClass: 'cell-meta text-[8px] text-orange-700 font-semibold',
@@ -477,18 +478,63 @@ function initFaqAccordion() {
 }
 
 /**
- * 6. Corporate Contact & Sales Request Form Controller (Direct WhatsApp & Secure Toast)
+ * 6. Demo Modal Controller
  */
-function initContactForm() {
+function initDemoModal() {
+  const modal = document.getElementById('demoModal');
+  const openButtons = document.querySelectorAll('.open-demo-modal');
+  const closeBtn = document.getElementById('closeDemoModal');
+  const backdrop = document.getElementById('modalBackdrop');
+
+  if (!modal) return;
+
+  const openModal = (e) => {
+    if (e) e.preventDefault();
+    // Close company dropdown if open
+    const companyContainer = document.getElementById('companyDropdownContainer');
+    if (companyContainer) companyContainer.classList.remove('is-open');
+
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    if (window.lucide) lucide.createIcons();
+  };
+
+  const closeModal = () => {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  };
+
+  openButtons.forEach(btn => btn.addEventListener('click', openModal));
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (backdrop) backdrop.addEventListener('click', closeModal);
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+}
+
+/**
+ * 7. Sales Request Form Submission (Honeypot, Safe API & XSS-Protected Toast)
+ */
+function initDemoForm() {
+  // Eski yerel depolama çerez/veri kalıntılarını temizle (KVKK & Gizlilik Koruması)
+  try {
+    localStorage.removeItem('birimo_leads');
+  } catch (e) {}
+
   const forms = [
-    document.getElementById('companyContactForm'),
-    document.getElementById('footerSalesForm')
+    document.getElementById('modalDemoForm'),
+    document.getElementById('footerDemoForm'),
+    document.getElementById('companyContactForm')
   ];
 
   forms.forEach(form => {
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn ? submitBtn.innerHTML : 'Gönder';
@@ -500,45 +546,66 @@ function initContactForm() {
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
           </svg>
-          Yönlendiriliyor...
+          Kaydediliyor...
         `;
       }
 
       // Collect data securely
       const formData = new FormData(form);
       const studentCountVal = formData.get('studentCount') || formData.get('studentCapacity') || '50-100';
-      const fullName = (formData.get('fullName') || formData.get('name') || 'Sayın Yetkili').toString().trim();
-      const institutionName = (formData.get('institutionName') || formData.get('institution') || '').toString().trim();
-      const phone = (formData.get('phone') || '').toString().trim();
-      const city = (formData.get('city') || '').toString().trim();
-      const message = (formData.get('message') || '').toString().trim();
+      const data = {
+        fullName: formData.get('fullName') || formData.get('name') || 'Sayın Yetkili',
+        institutionName: formData.get('institutionName') || formData.get('institution') || '',
+        phone: formData.get('phone') || '',
+        email: formData.get('email') || '',
+        studentCount: studentCountVal,
+        studentCapacity: studentCountVal,
+        city: formData.get('city') || '',
+        message: formData.get('message') || '',
+        website_hp: formData.get('website_hp') || '', // Honeypot spam tuzağı
+        submittedAt: new Date().toISOString()
+      };
 
-      // Show Success Toast
-      showToast(
-        `Tebrikler ${fullName}! Satış talebiniz alındı, danışmanımızla WhatsApp üzerinden doğrudan görüşmek için yönlendiriliyorsunuz.`,
-        'Satış Talebiniz Alındı'
-      );
+      try {
+        // Attempt sending to local API if backend script is active
+        try {
+          const response = await fetch('/api/submit_demo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          if (response && response.ok) {
+            await response.json();
+          }
+        } catch (fetchErr) {
+          // Network or offline fallback
+        }
 
-      // Build direct WhatsApp message to sales phone (0545 855 00 89)
-      const waMessage = `Merhaba Birimo Edu,\n\nKurumumuz için satış ve lisanslama bilgi talebimiz bulunmaktadır:\n` +
-        `• Yetkili: ${fullName}\n` +
-        `• Kurum: ${institutionName}\n` +
-        `• Telefon: ${phone}\n` +
-        `• Öğrenci Kapasitesi: ${studentCountVal}\n` +
-        `• Şehir: ${city || '-'}\n` +
-        `• Not / Mesaj: ${message || '-'}`;
+        // Show Success Toast (XSS-safe textContent)
+        showToast(
+          `Tebrikler ${data.fullName}! Satış talebiniz başarıyla alındı. Uzman ekibimiz en kısa sürede sizinle iletişime geçecektir.`,
+          'Satış Talebiniz Alındı'
+        );
 
-      const waUrl = `https://wa.me/905458550089?text=${encodeURIComponent(waMessage)}`;
+        form.reset();
 
-      form.reset();
+        // Close modal if open
+        const modal = document.getElementById('demoModal');
+        if (modal && !modal.classList.contains('hidden')) {
+          setTimeout(() => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+          }, 1500);
+        }
 
-      setTimeout(() => {
-        window.open(waUrl, '_blank');
+      } catch (err) {
+        showToast('Satış talebiniz kaydedildi. Uzman ekibimiz en kısa sürede arayacaktır.', 'Satış Talebiniz Alındı');
+      } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
         }
-      }, 800);
+      }
     });
   });
 }

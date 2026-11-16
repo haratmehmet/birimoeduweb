@@ -48,19 +48,84 @@ website/
 │   ├── admin.png            # Kurucu & Yönetici arayüzü görseli
 │   └── hero_sketch.jpg      # Kurumsal arkaplan skeç görseli
 │
-## 🌐 Yayınlama (Deployment) Rehberi
-
-### Vercel / Netlify / Cloudflare Pages
-1. Yeni proje oluşturun ve bu repoyu bağlayın.
-2. Siteniz statik HTML/CSS/JS olarak anında canlıya çıkar.
+└── api/
+    ├── demo_request.sql     # PostgreSQL (pgsql) tablo ve indeks kurulum dosyası
+    ├── config.php           # Veritabanı bağlantı ayarları
+    ├── submit_demo.php      # Güvenli PHP PostgreSQL demo kayıt endpoint'i
+    ├── submit_demo.js       # Node.js / Express ortamları için alternatif backend handler
+    └── .htaccess            # API yedeklerini ve konfigürasyonu dış erişime kapatan kalkan
+```
 
 ---
 
-## 📞 Kurumsal Satış & İletişim Kanalları
+## 🌐 Yayınlama (Deployment) Rehberi
 
-Tüm satış ve kurumsal bilgi talepleri `https://www.birimoedu.com/iletisim` sayfası üzerinden doğrudan yetkili satış hattına yönlendirilir:
-- **Müşteri & Satış Hattı:** 0 545 855 00 89
-- **Kurumsal E-posta:** destek@birimoedu.com
+### Senaryo 1: cPanel / Paylaşımlı Hosting / FTP (Örn: `birimoedu.com`)
+1. cPanel Dosya Yöneticisi (File Manager) veya FileZilla ile sunucunuza bağlanın.
+2. Domaininizin kök dizini olan `public_html` içine girin.
+3. `website/` klasörünün **içindeki tüm dosya ve klasörleri** doğrudan `public_html` içine yükleyin.
+4. Siteniz hemen `https://birimoedu.com` üzerinde canlıya çıkacaktır!
+
+### Senaryo 2: Vercel / Netlify / Cloudflare Pages
+1. Yeni proje oluşturun ve bu repoyu bağlayın.
+2. **Root Directory** veya **Publish Directory** olarak `website` yazın.
+3. **Build Command** alanını boş bırakın (statik sitedir).
+4. Deploy butonuna basın; siteniz saniyeler içinde yayında!
+
+### Senaryo 3: Nginx / VPS Sunucusu
+Nginx konfigürasyonunuza şu bloğu eklemeniz yeterlidir:
+```nginx
+server {
+    listen 80;
+    server_name birimoedu.com www.birimoedu.com;
+    root /var/www/birimo/website;
+    index index.html index.php;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+    }
+
+    location ^~ /api/leads_backup.json {
+        deny all;
+    }
+}
+```
+
+---
+
+## 🗄️ PostgreSQL ("pysql") Veritabanı Kurulumu
+
+Demo taleplerinin PostgreSQL veritabanınıza otomatik akması için:
+
+1. **Tabloyu Oluşturun:**
+   - pgAdmin, DBeaver veya terminal üzerinden PostgreSQL veritabanınıza bağlanın:
+   ```bash
+   psql -U postgres -d mentoros -f website/api/demo_request.sql
+   ```
+   Bu komut `website_demo_requests` tablosunu ve performans indekslerini oluşturur.
+
+2. **Bağlantı Bilgilerini Girin:**
+   - `website/api/config.php` dosyasını açıp veritabanı bilgilerinizi düzenleyin:
+   ```php
+   define('DB_HOST', 'localhost');
+   define('DB_PORT', '5432');
+   define('DB_NAME', 'mentoros');
+   define('DB_USER', 'postgres');
+   define('DB_PASS', 'sifreniz');
+   ```
+   *(Veya sunucunuzda `DATABASE_URL` ortam değişkeni tanımlıysa, script bunu otomatik tanır).*
+
+3. **Gelen Talepleri İnceleme Sorgusu:**
+   ```sql
+   SELECT full_name, institution_name, phone, student_capacity, created_at, status 
+   FROM website_demo_requests 
+   ORDER BY created_at DESC;
+   ```
 
 ---
 
